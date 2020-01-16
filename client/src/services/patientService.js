@@ -14,14 +14,44 @@ export default {
         futureSurgeries: patient.futureSurgeries,
         surgeryDate: patient.surgeryDate
       })
-      .then(response => response)
-      .catch(error => error);
+      .then(res => res)
+      .catch(err => err);
   },
   //display patient
   showPatient: () => {
-    console.log("service");
     return axios
       .get("/api/allPatient")
+      .then(res => res)
+      .catch(err => err);
+  },
+  //display one patient
+  onePatient: id => {
+    return axios
+      .get("http://localhost:5000/api/onePatient/" + id)
+      .then(res => res);
+  },
+  //update patient
+  updatePatient: (id, patient) => {
+    return axios
+      .post("http://localhost:5000/api/updatePatient/" + id, {
+        name: patient.name,
+        nationalNumber: patient.nationalNumber,
+        address: patient.address,
+        phoneNumber: patient.phoneNumber,
+        birthDate: patient.birthDate,
+        disease: patient.disease,
+        surgeriesHistory: patient.surgeriesHistory,
+        futureSurgeries: patient.futureSurgeries,
+        surgeryDate: patient.surgeryDate
+      })
+      .then(res => res)
+      .catch(err => err);
+  },
+
+  //delete
+  deletePatient: id => {
+    return axios
+      .delete("http://localhost:5000/api/deletePatient/" + id)
       .then(res => res)
       .catch(err => err);
   }

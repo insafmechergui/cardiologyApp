@@ -1,8 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+var cors = require("cors");
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(cors());
+
+//import Routes
+require("./routes/userRoutes")(app);
+require("./routes/patientRoutes")(app);
 
 mongoose.Promise = global.Promise;
 
@@ -12,12 +20,6 @@ mongoose.connect(
 
   { useUnifiedTopology: true, useNewUrlParser: true }
 );
-
-app.use(bodyParser.json());
-
-//import Routes
-require("./routes/userRoutes")(app);
-require("./routes/patientRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

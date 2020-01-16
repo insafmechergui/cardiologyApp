@@ -1,5 +1,12 @@
 .App {
-  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+form {
+  width: 60%;
+}
+.signn {
+  width: 30%;
 }
 
 .App-logo {
