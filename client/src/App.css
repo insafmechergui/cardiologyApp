@@ -1,14 +1,15 @@
-.App {
+/* .App:not(#notInclude) {
   width: 90%;
+  margin: auto;
+} */
+
+.formm {
+  width: 70%;
   margin: auto;
 }
 
-div .formm {
-  width: 40% !important;
-  margin: auto;
-}
 .signn {
-  width: 30%;
+  width: 60%;
 }
 
 .App-logo {

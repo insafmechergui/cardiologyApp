@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 module.exports = app => {
   //signup for doctor
   //save data and hash password
-  app.post("/api/signupDoctor", (req, res) => {
+  app.post("/api/signup", (req, res) => {
     // var userData = ;
     bcrypt.hash(req.body.password, 10, (err, hash) => {
       if (err) {
@@ -19,15 +19,15 @@ module.exports = app => {
         password: hash
       });
       doctor.save(err => {
-        if (err) return res.json({ error: true });
-        res.json({ error: false });
+        if (err) return res.json({ message: "User existe before" });
+        res.json({ message: "User saved" });
       });
       // bcrypt.compare(userData.pa);
     });
   });
 
   //signin for doctor
-  app.post("/api/signinDoctor", (req, res) => {
+  app.post("/api/signin", (req, res) => {
     User.findOne({ matricule: req.body.matricule })
       .exec()
       .then(user => {
@@ -60,15 +60,19 @@ module.exports = app => {
 
   //logout Doctor
   app.post("/api/signout", (req, res) => {
-    User.findOne({ name: req.body.name }, (err, data) => {
-      // if (err) res.json(err);
-      console.log("dddd", data);
-      console.log("rrrrrr", err);
-      // data.token = [];
-      // data.save(err => {
-      //   if (err) res.json(err);
-      //   res.status(201).json({ deleted: "success" });
-      // });
-    });
+    User.findOne({ name: req.body.name })
+      .then(user => console.log(user))
+      .catch(() => {
+        res.status(401).json({ message: "User logged out" });
+      });
+    // User.findOne({ name: req.body.name }, (err, data) => {
+    //   if (err) res.json(err);
+
+    //   data.token = [];
+    //   data.save(err => {
+    //     if (err) res.json(err);
+    //     res.status(201).json({ deleted: "success" });
+    //   });
+    // });
   });
 };

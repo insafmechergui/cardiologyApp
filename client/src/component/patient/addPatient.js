@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { IoMdPersonAdd } from "react-icons/io";
 import patientService from "../../services/patientService";
+import { MDBContainer, MDBAlert } from "mdbreact";
 
 class AddPatient extends React.Component {
   constructor(props) {
@@ -27,10 +28,12 @@ class AddPatient extends React.Component {
     // } else {
     //   console.log("err");
     // }
+
     patientService
       .addPatient(this.state)
       .then(res => console.log("res", res))
       .catch(err => console.log("err", err));
+    this.props.history.push("/");
   }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -39,6 +42,7 @@ class AddPatient extends React.Component {
     return (
       <div class="formm">
         <h3>Add Patient</h3>
+
         <Form onSubmit={e => this.handleSubmit(e)}>
           <Form.Group controlId="exampleForm.ControlInputName">
             <Form.Label>Name</Form.Label>
@@ -92,8 +96,8 @@ class AddPatient extends React.Component {
             <Form.Label>Birth Date</Form.Label>
             <Form.Control
               type="date"
-              name="date"
-              value={this.state.date}
+              name="birthDate"
+              value={this.state.birthDate}
               onChange={e => {
                 this.onChange(e);
               }}

@@ -7,6 +7,18 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBModalFooter,
+  MDBIcon,
+  MDBCardHeader,
+  MDBBtn,
+  MDBInput
+} from "mdbreact";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +45,7 @@ class Login extends React.Component {
         //this.props.showName();
       })
       .catch(err => console.log("err", err));
+    this.props.history.push("/");
   };
 
   onChange(e) {
@@ -40,9 +53,18 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)} class="signn">
-        <h3>Sign In</h3>
-        {/* <div className="form-group">
+      <MDBContainer className="containerSign">
+        <MDBRow>
+          <MDBCol md="4">
+            <MDBCard>
+              <MDBCardBody>
+                <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                  <h3 className="my-3">
+                    <MDBIcon icon="lock" /> Login:
+                  </h3>
+                </MDBCardHeader>
+                <form onSubmit={e => this.handleSubmit(e)} className="signn">
+                  {/* <div className="form-group">
           <label>Name</label>
           <input
             type="text"
@@ -55,35 +77,45 @@ class Login extends React.Component {
             }}
           />
         </div> */}
-        <div className="form-group">
-          <label>Matricule</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Matricule"
-            name="matricule"
-            value={this.state.matricule}
-            onChange={e => {
-              this.onChange(e);
-            }}
-          />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-            name="password"
-            value={this.state.password}
-            onChange={e => {
-              this.onChange(e);
-            }}
-          />
-        </div>
-        <input type="submit" className="btn btn-primary btn-block" />
-        <Link to="/signup">Signup</Link>
-      </form>
+                  <div className="form-group">
+                    <label>Matricule</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Matricule"
+                      name="matricule"
+                      value={this.state.matricule}
+                      onChange={e => {
+                        this.onChange(e);
+                      }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Enter password"
+                      name="password"
+                      value={this.state.password}
+                      onChange={e => {
+                        this.onChange(e);
+                      }}
+                    />
+                  </div>
+
+                  <input type="submit" className="btn btn-primary btn-block" />
+                </form>
+                <MDBModalFooter>
+                  <div className="font-weight-light">
+                    <Link to="/signup">New doctor ? Sign Up</Link>
+                  </div>
+                </MDBModalFooter>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }

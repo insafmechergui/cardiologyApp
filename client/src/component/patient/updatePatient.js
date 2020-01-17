@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import patientService from "../../services/patientService";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Form, Button } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 class UpdatePatient extends React.Component {
   constructor(props) {
@@ -39,11 +40,15 @@ class UpdatePatient extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     var id = localStorage.getItem("id");
-    patientService.updatePatient(id, this.state.patient);
+    patientService.updatePatient(id, this.state.patient).then(result => {
+      console.log(result);
+    });
+    this.props.history.push("/");
   }
   render() {
     return (
       <div class="formm">
+        <h3>Update Patient</h3>
         <Form onSubmit={e => this.handleSubmit(e)}>
           <div>
             <Form.Group controlId="exampleForm.ControlInputName">
@@ -98,8 +103,8 @@ class UpdatePatient extends React.Component {
               <Form.Label>Birth Date</Form.Label>
               <Form.Control
                 type="date"
-                name="date"
-                value={this.state.patient.date}
+                name="birthDate"
+                value={this.state.patient.birthDate}
                 onChange={e => {
                   this.onChange(e);
                 }}

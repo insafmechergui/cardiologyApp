@@ -3,7 +3,7 @@ export default {
   //signup
   signup: user => {
     return axios
-      .post("/api/signupDoctor", {
+      .post("/api/signup", {
         name: user.name,
         matricule: user.matricule,
         password: user.password
@@ -14,11 +14,18 @@ export default {
   //signin
   signin: user => {
     return axios
-      .post("/api/signinDoctor", {
+      .post("/api/signin", {
         // name: user.name,
         matricule: user.matricule,
         password: user.password
       })
+      .then(res => res)
+      .catch(err => err);
+  },
+  //signout
+  signout: user => {
+    return axios
+      .post("/api/signout", { user })
       .then(res => res)
       .catch(err => err);
   }
