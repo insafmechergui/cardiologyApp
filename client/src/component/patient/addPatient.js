@@ -22,7 +22,11 @@ class AddPatient extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    // if (patientService.onePatient(this.state.nationalNumber) !== null){}else{console.log("err")}
+    // if (patientService.onePatient(this.state.nationalNumber) === null) {
+    //   console.log("ggggg");
+    // } else {
+    //   console.log("err");
+    // }
     patientService
       .addPatient(this.state)
       .then(res => console.log("res", res))
@@ -33,7 +37,8 @@ class AddPatient extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div class="formm">
+        <h3>Add Patient</h3>
         <Form onSubmit={e => this.handleSubmit(e)}>
           <Form.Group controlId="exampleForm.ControlInputName">
             <Form.Label>Name</Form.Label>

@@ -36,6 +36,7 @@ module.exports = app => {
           surgeryDate: req.body.surgeryDate
         });
         patient.save();
+        return res.status(200).json("data saved");
       }
     );
   });
@@ -100,15 +101,11 @@ module.exports = app => {
 
   //delete patient
   app.delete("/api/deletePatient/:nationalNumber", (req, res) => {
-    Patient.deleteOne(
-      { nationalNumber: req.params.nationalNumber },
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        }
-
-        res.send("patient is deleted");
+    Patient.deleteOne({ nationalNumber: req.params.nationalNumber }, err => {
+      if (err) {
+        console.log(err);
       }
-    );
+      res.send("patient is deleted");
+    });
   });
 };

@@ -45,7 +45,8 @@ module.exports = app => {
             );
             return res.status(200).json({
               message: "User is logged in",
-              token: token
+              token: token,
+              doctor: user.name
             });
           } else {
             return res.status(401).json({ message: "check again" });
@@ -55,5 +56,19 @@ module.exports = app => {
       .catch(err => {
         res.status(401).json({ message: "User doesn't existe" });
       });
+  });
+
+  //logout Doctor
+  app.post("/api/signout", (req, res) => {
+    User.findOne({ name: req.body.name }, (err, data) => {
+      // if (err) res.json(err);
+      console.log("dddd", data);
+      console.log("rrrrrr", err);
+      // data.token = [];
+      // data.save(err => {
+      //   if (err) res.json(err);
+      //   res.status(201).json({ deleted: "success" });
+      // });
+    });
   });
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Table, Form, FormControl } from "react-bootstrap";
 import patientService from "../../services/patientService";
 import { MdDelete, MdEdit } from "react-icons/md";
 import {
@@ -20,6 +20,9 @@ class ShowPatient extends React.Component {
     this.delete = this.delete.bind(this);
   }
   componentDidMount() {
+    this.displayPatients();
+  }
+  displayPatients() {
     patientService.showPatient().then(res => {
       this.setState({
         patient: res.data
@@ -29,7 +32,7 @@ class ShowPatient extends React.Component {
   delete(id) {
     console.log(id);
     patientService.deletePatient(id).then(res => {
-      // document.getElementById("dddd").textContent = "INSAF U DID THIS BEFORE";
+      this.displayPatients();
       document.getElementById("dddd").textContent = "Patient deleted";
     });
     // let delet = this.state.patient.filter(pat => {
@@ -49,15 +52,25 @@ class ShowPatient extends React.Component {
     });
     return (
       <div>
-        <form>
+        <Form
+          inline
+          style={{ display: "block", float: "right", margin: "20px" }}
+        >
+          <FormControl
+            placeholder="Search for..."
+            value={this.state.search}
+            onChange={this.onchange.bind(this)}
+          />
+        </Form>
+        {/* <form>
           <input
             placeholder="Search for..."
             value={this.state.search}
             onChange={this.onchange.bind(this)}
             // name="search"
-          />
-          {/* <p>{this.state.search}</p> */}
-        </form>
+          /> */}
+        {/* <p>{this.state.search}</p> */}
+        {/* </form> */}
         <Table responsive>
           <thead>
             <tr>

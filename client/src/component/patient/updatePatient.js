@@ -43,7 +43,7 @@ class UpdatePatient extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div class="formm">
         <Form onSubmit={e => this.handleSubmit(e)}>
           <div>
             <Form.Group controlId="exampleForm.ControlInputName">

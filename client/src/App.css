@@ -1,9 +1,11 @@
 .App {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
-form {
-  width: 60%;
+
+div .formm {
+  width: 40% !important;
+  margin: auto;
 }
 .signn {
   width: 30%;

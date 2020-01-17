@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import userService from "../../services/userService";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +27,11 @@ class Login extends React.Component {
         console.log("connected");
         return res.data;
       })
-      .then(datta => localStorage.setItem("token", datta.token))
+      .then(datta => {
+        localStorage.setItem("token", datta.token);
+        localStorage.setItem("name", datta.doctor);
+        //this.props.showName();
+      })
       .catch(err => console.log("err", err));
   };
 
@@ -72,6 +82,7 @@ class Login extends React.Component {
           />
         </div>
         <input type="submit" className="btn btn-primary btn-block" />
+        <Link to="/signup">Signup</Link>
       </form>
     );
   }
