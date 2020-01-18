@@ -41,7 +41,7 @@ class Navbarcomp extends React.Component {
       matricule: ""
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     const token = localStorage.getItem("token");
     if (token) {
       const decoded = jwt_decode(token);

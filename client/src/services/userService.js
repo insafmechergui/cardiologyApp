@@ -28,10 +28,10 @@ export default {
       .catch(err => console.log(err));
   },
   //signout
-  signout: user => {
-    return axios
-      .post("/api/signout", { user })
-      .then(res => res)
-      .catch(err => err);
-  }
+  // signout: user => {
+  //   return axios
+  //     .post("/api/signout", { user })
+  //     .then(res => res)
+  //     .catch(err => err);
+  // }
 };

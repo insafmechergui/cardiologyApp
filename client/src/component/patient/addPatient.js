@@ -11,6 +11,7 @@ class AddPatient extends React.Component {
       name: "",
       nationalNumber: "",
       address: "",
+      image: "",
       phoneNumber: "",
       birthDate: "",
       disease: "",
@@ -75,6 +76,18 @@ class AddPatient extends React.Component {
               placeholder="address"
               name="address"
               value={this.state.address}
+              onChange={e => {
+                this.onChange(e);
+              }}
+            />
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlInputAddress">
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="image"
+              name="image"
+              value={this.state.image}
               onChange={e => {
                 this.onChange(e);
               }}

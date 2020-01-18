@@ -26,8 +26,6 @@ class Login extends Component {
       matricule: "",
       password: ""
     };
-    // this.onChange = this.onChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onChange(e) {
@@ -36,21 +34,10 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // userService
-    //   .signin(this.state)
-    //   .then(res => {
-    //     console.log("connected");
-    //     return res;
-    //   })
-    //   .then(datta => {
-    //     //this.props.showName();
-    //   })
-    //   .catch(err => console.log("err", err));
 
     userService.signin(this.state).then(res => {
       if (res) {
         localStorage.setItem("token", res.token);
-        // localStorage.setItem("name", res.doctor);
         this.props.history.push("/allPatient");
       }
     });

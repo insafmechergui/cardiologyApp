@@ -12,6 +12,7 @@ class UpdatePatient extends React.Component {
       name: "",
       nationalNumber: "",
       address: "",
+      image: "",
       phoneNumber: "",
       birthDate: "",
       disease: "",
@@ -83,6 +84,18 @@ class UpdatePatient extends React.Component {
                 // placeholder={this.state.patient.address}
                 name="address"
                 value={this.state.patient.address}
+                onChange={e => {
+                  this.onChange(e);
+                }}
+              />
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlInputNationalNumber">
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                type="text"
+                // placeholder={this.state.patient.nationalNumber}
+                name="image"
+                value={this.state.patient.image}
                 onChange={e => {
                   this.onChange(e);
                 }}

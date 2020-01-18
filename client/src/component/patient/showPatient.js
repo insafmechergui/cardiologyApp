@@ -64,7 +64,7 @@ class ShowPatient extends React.Component {
       "-" +
       tempDate.getDate() +
       " " +
-      tempDate.getHours() +
+      (tempDate.getHours() - 1) +
       ":" +
       tempDate.getMinutes();
     const currDate = "Current Date= " + date;
@@ -93,10 +93,11 @@ class ShowPatient extends React.Component {
             onChange={this.onchange.bind(this)}
           />
         </Form>
-
+        {currDate}
         <Table responsive>
           <thead>
             <tr>
+              <th>Image</th>
               <th>Name</th>
               <th>National Number</th>
               <th>Address</th>
@@ -112,12 +113,22 @@ class ShowPatient extends React.Component {
           <tbody>
             {filterPatient.map(pat => {
               {
-                currDate === pat.surgeryDate
-                  ? console.log("yes")
+                currDate >= pat.surgeryDate
+                  ? console.log("yy")
                   : console.log("nn");
               }
               return (
                 <tr>
+                  <td>
+                    <img
+                      src={pat.image}
+                      style={{
+                        width: "100%",
+                        height: "20%",
+                        borderRadius: "50%"
+                      }}
+                    />
+                  </td>
                   <td>{pat.name}</td>
                   <td>{pat.nationalNumber}</td>
                   <td>{pat.address}</td>

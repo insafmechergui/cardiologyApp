@@ -28,6 +28,7 @@ module.exports = app => {
           name: req.body.name,
           nationalNumber: req.body.nationalNumber,
           address: req.body.address,
+          image: req.body.image,
           phoneNumber: req.body.phoneNumber,
           birthDate: req.body.birthDate,
           disease: req.body.disease,

@@ -39,7 +39,7 @@ module.exports = app => {
             });
             User.create(doctor)
               .then(user => {
-                res.json({ status: user.matricule + " registred!" });
+                res.json({ g: true, status: user.matricule + " registred!" });
               })
               .catch(err => {
                 res.send("error: " + err);
