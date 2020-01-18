@@ -19,64 +19,60 @@ import {
   MDBBtn,
   MDBInput
 } from "mdbreact";
-class Login extends React.Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //   name: "",
       matricule: "",
       password: ""
     };
-    this.onChange = this.onChange.bind(this);
+    // this.onChange = this.onChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log(this.state);
-    userService
-      .signin(this.state)
-      .then(res => {
-        console.log("connected");
-        return res.data;
-      })
-      .then(datta => {
-        localStorage.setItem("token", datta.token);
-        localStorage.setItem("name", datta.doctor);
-        //this.props.showName();
-      })
-      .catch(err => console.log("err", err));
-    this.props.history.push("/");
-  };
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    // userService
+    //   .signin(this.state)
+    //   .then(res => {
+    //     console.log("connected");
+    //     return res;
+    //   })
+    //   .then(datta => {
+    //     //this.props.showName();
+    //   })
+    //   .catch(err => console.log("err", err));
+
+    userService.signin(this.state).then(res => {
+      if (res) {
+        localStorage.setItem("token", res.token);
+        // localStorage.setItem("name", res.doctor);
+        this.props.history.push("/allPatient");
+      }
+    });
+  }
+
   render() {
     return (
       <MDBContainer className="containerSign">
-        <MDBRow>
+        <MDBRow className="signn">
           <MDBCol md="4">
             <MDBCard>
               <MDBCardBody>
-                <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                <MDBCardHeader className="form-header rounded">
                   <h3 className="my-3">
                     <MDBIcon icon="lock" /> Login:
                   </h3>
                 </MDBCardHeader>
-                <form onSubmit={e => this.handleSubmit(e)} className="signn">
-                  {/* <div className="form-group">
-          <label>Name</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="your name"
-            name="name"
-            value={this.state.name}
-            onChange={e => {
-              this.onChange(e);
-            }}
-          />
-        </div> */}
+                <form
+                  onSubmit={e => {
+                    this.handleSubmit(e);
+                  }}
+                >
                   <div className="form-group">
                     <label>Matricule</label>
                     <input
@@ -104,7 +100,11 @@ class Login extends React.Component {
                     />
                   </div>
 
-                  <input type="submit" className="btn btn-primary btn-block" />
+                  <input
+                    type="submit"
+                    value="Log In"
+                    className="btn btn-primary btn-block"
+                  />
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light">

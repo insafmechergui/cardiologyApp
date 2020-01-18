@@ -8,19 +8,24 @@ export default {
         matricule: user.matricule,
         password: user.password
       })
-      .then(res => res)
+      .then(res => console.log("Registered!"))
       .catch(err => err);
   },
   //signin
   signin: user => {
     return axios
       .post("/api/signin", {
-        // name: user.name,
         matricule: user.matricule,
         password: user.password
       })
-      .then(res => res)
-      .catch(err => err);
+      .then(res =>
+        //  res
+        {
+          localStorage.setItem("token", res.data);
+          return res.data;
+        }
+      )
+      .catch(err => console.log(err));
   },
   //signout
   signout: user => {

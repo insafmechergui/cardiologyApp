@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const patientSchema = require("../models/Patient");
 const Patient = mongoose.model("patient");
 const express = require("express");
-const checkAuth = require("./middleware/check-auth");
+const auth = require("../middleware/auth");
 
 const app = express();
 

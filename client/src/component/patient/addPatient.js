@@ -33,14 +33,14 @@ class AddPatient extends React.Component {
       .addPatient(this.state)
       .then(res => console.log("res", res))
       .catch(err => console.log("err", err));
-    this.props.history.push("/");
+    this.props.history.push("/allPatient");
   }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
     return (
-      <div class="formm">
+      <div className="formm">
         <h3>Add Patient</h3>
 
         <Form onSubmit={e => this.handleSubmit(e)}>
@@ -150,7 +150,16 @@ class AddPatient extends React.Component {
               }}
             />
           </Form.Group>
-          <input type="submit" />
+          <button
+            type="submit"
+            style={{
+              backgroundColor: "#48bac8",
+              color: "white",
+              padding: "10px"
+            }}
+          >
+            Add Patient
+          </button>
         </Form>
       </div>
     );

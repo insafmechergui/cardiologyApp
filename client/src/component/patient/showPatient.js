@@ -19,9 +19,11 @@ class ShowPatient extends React.Component {
     };
     this.delete = this.delete.bind(this);
   }
+
   componentDidMount() {
     this.displayPatients();
   }
+
   displayPatients() {
     patientService.showPatient().then(res => {
       this.setState({
@@ -33,25 +35,54 @@ class ShowPatient extends React.Component {
     console.log(id);
     patientService.deletePatient(id).then(res => {
       this.displayPatients();
-      document.getElementById("dddd").textContent = "Patient deleted";
+      // document.getElementById("dddd").textContent = "Patient deleted";
     });
-    // let delet = this.state.patient.filter(pat => {
-    //   return;
-    // });
   }
   onchange(e) {
     this.setState({
       search: e.target.value
     });
   }
+  todayDate() {}
   render() {
     let filterPatient = this.state.patient.filter(pat => {
       return (
         pat.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
     });
+    // var date = new Date().getDate(); //Current Date
+    // var month = new Date().getMonth() + 1; //Current Month
+    // var year = new Date().getFullYear(); //Current Year
+    // var hours = new Date().getHours(); //Current Hours
+    // var min = new Date().getMinutes(); //Current Minutes
+    // var sec = new Date().getSeconds(); //Current Seconds
+    var tempDate = new Date();
+    var date =
+      tempDate.getFullYear() +
+      "-" +
+      (tempDate.getMonth() + 1) +
+      "-" +
+      tempDate.getDate() +
+      " " +
+      tempDate.getHours() +
+      ":" +
+      tempDate.getMinutes();
+    const currDate = "Current Date= " + date;
     return (
       <div>
+        {/* {this.newDate + "/" + this.date} */}
+        {/* {date +
+          "/" +
+          month +
+          "/" +
+          year +
+          "/" +
+          hours +
+          "/" +
+          "/" +
+          min +
+          "/" +
+          sec} */}
         <Form
           inline
           style={{ display: "block", float: "right", margin: "20px" }}
@@ -62,15 +93,7 @@ class ShowPatient extends React.Component {
             onChange={this.onchange.bind(this)}
           />
         </Form>
-        {/* <form>
-          <input
-            placeholder="Search for..."
-            value={this.state.search}
-            onChange={this.onchange.bind(this)}
-            // name="search"
-          /> */}
-        {/* <p>{this.state.search}</p> */}
-        {/* </form> */}
+
         <Table responsive>
           <thead>
             <tr>
@@ -88,6 +111,11 @@ class ShowPatient extends React.Component {
           </thead>
           <tbody>
             {filterPatient.map(pat => {
+              {
+                currDate === pat.surgeryDate
+                  ? console.log("yes")
+                  : console.log("nn");
+              }
               return (
                 <tr>
                   <td>{pat.name}</td>
@@ -104,13 +132,16 @@ class ShowPatient extends React.Component {
                       <MdEdit
                         onClick={() => {
                           localStorage.setItem("id", pat.nationalNumber);
-                          // <Redirect to="/update" />;
                         }}
+                        style={{ color: "green" }}
                       />
                     </Link>
                   </td>
                   <td>
-                    <MdDelete onClick={() => this.delete(pat.nationalNumber)} />
+                    <MdDelete
+                      onClick={() => this.delete(pat.nationalNumber)}
+                      style={{ color: "red" }}
+                    />
                   </td>
                 </tr>
               );

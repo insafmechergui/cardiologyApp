@@ -43,11 +43,12 @@ class UpdatePatient extends React.Component {
     patientService.updatePatient(id, this.state.patient).then(result => {
       console.log(result);
     });
-    this.props.history.push("/");
+
+    this.props.history.push("/allPatient");
   }
   render() {
     return (
-      <div class="formm">
+      <div className="formm">
         <h3>Update Patient</h3>
         <Form onSubmit={e => this.handleSubmit(e)}>
           <div>

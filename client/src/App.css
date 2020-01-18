@@ -2,16 +2,33 @@
   width: 90%;
   margin: auto;
 } */
-
+img {
+  width: 100%;
+  display: block;
+  margin-top: -40px;
+  height: 910px;
+}
+#welcome {
+  text-align: center;
+  top: 150px;
+  position: relative;
+  color: aliceblue;
+}
 .formm {
   width: 70%;
   margin: auto;
 }
-
-.signn {
-  width: 60%;
+.navButton {
+  margin: 10px;
+  color: white;
+}
+.containerSign {
+  margin-top: 50px;
 }
 
+.signn2 {
+  width: 80%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
