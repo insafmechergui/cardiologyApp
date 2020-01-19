@@ -55,18 +55,17 @@ class UpdatePatient extends React.Component {
           <img
             src={this.state.patient.image}
             className="img-fluid patImage"
-            style={{ float: "right", marginRight: "50px" }}
+            style={{ float: "right", clear: "both" }}
           />
         </Form.Group>
-
-        <Form onSubmit={e => this.handleSubmit(e)} className="formm">
-          <div>
-            <h3>
-              Update Patient:{" "}
-              <em style={{ color: "#3282b8" }}>{this.state.patient.name}</em>
-            </h3>
+        <div className="formm">
+          <h3>
+            Update Patient:{" "}
+            <em style={{ color: "#3282b8" }}>{this.state.patient.name}</em>
+          </h3>
+          <Form onSubmit={e => this.handleSubmit(e)} className="widthhhForm ">
             <Form.Group controlId="exampleForm.ControlInputName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label style={{ clear: "both" }}>Name</Form.Label>
               <Form.Control
                 type="text"
                 // placeholder={this.state.patient.name}
@@ -174,19 +173,19 @@ class UpdatePatient extends React.Component {
                 }}
               />
             </Form.Group>
+
             <button
               type="submit"
               style={{
-                backgroundColor: "#40bfc1",
-                color: "white",
+                backgroundColor: "#71c9ce",
                 padding: "10px",
                 borderRadius: "10px"
               }}
             >
               Update Patient
             </button>
-          </div>
-        </Form>
+          </Form>
+        </div>
       </div>
     );
   }

@@ -69,7 +69,7 @@ class App extends React.Component {
           <MDBNavbar
             style={{
               // backgroundColor: "#003f5c",
-              backgroundColor: "#3CA6D4",
+              backgroundColor: "#71c9ce",
               // position: "sticky",
               position: "sticky",
               height: "80px",

@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.App {
+  background-color: #e3fdfd;
+}
 /* .navButton {
   color: "#d6d4e0";
 } */
@@ -33,7 +36,12 @@
   height: 50px;
   float: left;
 }
-
+.widthhhForm {
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 40px;
+}
 .formm {
   width: 70%;
   margin: auto;
@@ -46,18 +54,18 @@
 .navButton {
   padding: 10px;
   font-weight: 400;
-  color: black;
+  color: #252a34;
 }
 
 .hoverLink:hover {
-  background-color: rgb(245, 111, 88);
+  background-color: #cbf1f5;
 }
 
 .txt:hover {
-  color: rgb(245, 111, 88);
+  color: #cbf1f5;
 }
 .navButton:hover {
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 

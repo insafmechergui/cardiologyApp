@@ -93,7 +93,6 @@ class ShowPatient extends React.Component {
             onChange={this.onchange.bind(this)}
           />
         </Form>
-        {currDate}
         <Table responsive>
           <thead>
             <tr>
@@ -114,8 +113,8 @@ class ShowPatient extends React.Component {
             {filterPatient.map(pat => {
               {
                 currDate >= pat.surgeryDate
-                  ? console.log("yy")
-                  : console.log("nn");
+                  ? console.log("still surgery")
+                  : console.log("passed surgery");
               }
               return (
                 <tr>

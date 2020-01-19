@@ -62,7 +62,7 @@ class Login extends Component {
               <MDBCardBody>
                 <MDBCardHeader
                   className="form-header rounded "
-                  style={{ backgroundColor: "#bc5090", color: "white" }}
+                  style={{ backgroundColor: "#ffb6b9", color: "white" }}
                 >
                   <h3 className="my-3">
                     <MDBIcon icon="lock" /> Login:
@@ -103,7 +103,7 @@ class Login extends Component {
                   <button
                     type="submit"
                     style={{
-                      backgroundColor: "#003f5c",
+                      backgroundColor: "#ffde7d",
                       color: "white",
                       padding: "10px",
                       width: "200px",

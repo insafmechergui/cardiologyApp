@@ -44,8 +44,7 @@ class AddPatient extends React.Component {
     return (
       <div className="formm">
         <h3>Add Patient</h3>
-
-        <Form onSubmit={e => this.handleSubmit(e)}>
+        <Form onSubmit={e => this.handleSubmit(e)} className="widthhhForm">
           <Form.Group controlId="exampleForm.ControlInputName">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -165,18 +164,17 @@ class AddPatient extends React.Component {
               }}
             />
           </Form.Group>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: "#3FACE4",
-              color: "white",
-              padding: "10px",
-              borderRadius: "10px"
-            }}
-          >
-            Add Patient
-          </button>
         </Form>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "#71c9ce",
+            padding: "10px",
+            borderRadius: "10px"
+          }}
+        >
+          Add Patient
+        </button>
       </div>
     );
   }
