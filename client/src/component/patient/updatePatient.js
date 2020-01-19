@@ -46,13 +46,25 @@ class UpdatePatient extends React.Component {
     });
 
     this.props.history.push("/allPatient");
+    window.location.reload();
   }
   render() {
     return (
-      <div className="formm">
-        <h3>Update Patient</h3>
-        <Form onSubmit={e => this.handleSubmit(e)}>
+      <div>
+        <Form.Group controlId="exampleForm.ControlInputName">
+          <img
+            src={this.state.patient.image}
+            className="img-fluid patImage"
+            style={{ float: "right", marginRight: "50px" }}
+          />
+        </Form.Group>
+
+        <Form onSubmit={e => this.handleSubmit(e)} className="formm">
           <div>
+            <h3>
+              Update Patient:{" "}
+              <em style={{ color: "#3282b8" }}>{this.state.patient.name}</em>
+            </h3>
             <Form.Group controlId="exampleForm.ControlInputName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -84,18 +96,6 @@ class UpdatePatient extends React.Component {
                 // placeholder={this.state.patient.address}
                 name="address"
                 value={this.state.patient.address}
-                onChange={e => {
-                  this.onChange(e);
-                }}
-              />
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInputNationalNumber">
-              <Form.Label>Image</Form.Label>
-              <Form.Control
-                type="text"
-                // placeholder={this.state.patient.nationalNumber}
-                name="image"
-                value={this.state.patient.image}
                 onChange={e => {
                   this.onChange(e);
                 }}
@@ -174,7 +174,17 @@ class UpdatePatient extends React.Component {
                 }}
               />
             </Form.Group>
-            <input type="submit" />
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "#40bfc1",
+                color: "white",
+                padding: "10px",
+                borderRadius: "10px"
+              }}
+            >
+              Update Patient
+            </button>
           </div>
         </Form>
       </div>

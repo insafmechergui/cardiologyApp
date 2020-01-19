@@ -97,7 +97,7 @@ class ShowPatient extends React.Component {
         <Table responsive>
           <thead>
             <tr>
-              <th>Image</th>
+              <th>Patient Image</th>
               <th>Name</th>
               <th>National Number</th>
               <th>Address</th>
@@ -120,14 +120,7 @@ class ShowPatient extends React.Component {
               return (
                 <tr>
                   <td>
-                    <img
-                      src={pat.image}
-                      style={{
-                        width: "100%",
-                        height: "20%",
-                        borderRadius: "50%"
-                      }}
-                    />
+                    <img className="patImage" src={pat.image} />
                   </td>
                   <td>{pat.name}</td>
                   <td>{pat.nationalNumber}</td>
@@ -144,14 +137,14 @@ class ShowPatient extends React.Component {
                         onClick={() => {
                           localStorage.setItem("id", pat.nationalNumber);
                         }}
-                        style={{ color: "green" }}
+                        style={{ color: "#21bf73" }}
                       />
                     </Link>
                   </td>
                   <td>
                     <MdDelete
                       onClick={() => this.delete(pat.nationalNumber)}
-                      style={{ color: "red" }}
+                      style={{ color: "#ff6361" }}
                     />
                   </td>
                 </tr>

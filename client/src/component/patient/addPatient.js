@@ -35,6 +35,7 @@ class AddPatient extends React.Component {
       .then(res => console.log("res", res))
       .catch(err => console.log("err", err));
     this.props.history.push("/allPatient");
+    window.location.reload();
   }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -84,6 +85,7 @@ class AddPatient extends React.Component {
           <Form.Group controlId="exampleForm.ControlInputAddress">
             <Form.Label>Image</Form.Label>
             <Form.Control
+              className="patImage"
               type="text"
               placeholder="image"
               name="image"
@@ -166,9 +168,10 @@ class AddPatient extends React.Component {
           <button
             type="submit"
             style={{
-              backgroundColor: "#48bac8",
+              backgroundColor: "#3FACE4",
               color: "white",
-              padding: "10px"
+              padding: "10px",
+              borderRadius: "10px"
             }}
           >
             Add Patient

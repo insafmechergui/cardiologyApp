@@ -24,6 +24,7 @@ import {
 } from "mdbreact";
 
 import * as jwt_decode from "jwt-decode";
+import { decode } from "jsonwebtoken";
 
 import Home from "./home";
 import AddPatient from "./patient/addPatient";
@@ -31,7 +32,6 @@ import ShowPatient from "./patient/showPatient";
 import UpdatePatient from "./patient/updatePatient";
 import Login from "./user/signin";
 import Signup from "./user/signup";
-import { decode } from "jsonwebtoken";
 class Navbarcomp extends React.Component {
   constructor() {
     super();
@@ -63,10 +63,24 @@ class Navbarcomp extends React.Component {
   render() {
     return (
       <div className="App">
-        <MDBNavbar color="default-color" dark expand="md" className="navv">
+        <MDBNavbar
+          style={{
+            backgroundColor: "#003f5c",
+            position: "fixed",
+            width: "100%",
+            top: "-5px",
+            lineHeight: "30px",
+            textTransform: "uppercase"
+          }}
+          dark
+          expand="md"
+          className="navv"
+        >
           <MDBNavbarBrand>
             <Link to="/">
-              <strong className="white-text">Cardiology RBK App</strong>
+              <strong className="blue-text navButton">
+                Cardiology RBK App
+              </strong>
             </Link>
           </MDBNavbarBrand>
           <MDBCollapse id="navbarCollapse3" navbar>
@@ -90,9 +104,7 @@ class Navbarcomp extends React.Component {
                 <MDBNavItem>
                   <MDBDropdown>
                     <MDBDropdownToggle nav caret>
-                      <div className="d-none d-md-inline">
-                        {this.state.name}
-                      </div>
+                      <div className="blue-text">{this.state.name}</div>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu className="dropdown-default">
                       <MDBDropdownItem>{this.state.matricule}</MDBDropdownItem>

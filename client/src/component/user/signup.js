@@ -8,7 +8,8 @@ import {
   MDBBtn,
   MDBCard,
   MDBCardBody,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBCardHeader
 } from "mdbreact";
 import {
   BrowserRouter as Router,
@@ -52,7 +53,12 @@ class SignUp extends Component {
             <MDBCard>
               <MDBCardBody>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                  <p className="h4 text-center py-4">Sign Up</p>
+                  <MDBCardHeader
+                    className="form-header rounded "
+                    style={{ backgroundColor: "#bc5090", color: "white" }}
+                  >
+                    <h3 className="my-3">Sign Up:</h3>
+                  </MDBCardHeader>
                   <div className="grey-text"></div>
                   <div className="form-group">
                     <label>Name</label>
@@ -93,11 +99,19 @@ class SignUp extends Component {
                       }}
                     />
                   </div>
-                  <input
+
+                  <button
                     type="submit"
-                    value="Sign Up"
-                    className="btn btn-primary btn-block"
-                  />
+                    style={{
+                      backgroundColor: "#003f5c",
+                      color: "white",
+                      padding: "10px",
+                      width: "200px",
+                      borderRadius: "10px"
+                    }}
+                  >
+                    Sign Up
+                  </button>
                   <MDBModalFooter>
                     <div className="font-weight-light">
                       <Link to="/signin">Have account ? Sign In</Link>

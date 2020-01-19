@@ -19,6 +19,15 @@ import {
   MDBBtn,
   MDBInput
 } from "mdbreact";
+import { Button, Card, Form, Row, FormGroup, Col } from "react-bootstrap";
+import {
+  Input,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
+  CardHeader,
+  CardBody
+} from "reactstrap";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -38,8 +47,9 @@ class Login extends Component {
     userService.signin(this.state).then(res => {
       if (res) {
         localStorage.setItem("token", res.token);
-        this.props.history.push("/allPatient");
       }
+      this.props.history.push("/allPatient");
+      window.location.reload();
     });
   }
 
@@ -50,7 +60,10 @@ class Login extends Component {
           <MDBCol md="4">
             <MDBCard>
               <MDBCardBody>
-                <MDBCardHeader className="form-header rounded">
+                <MDBCardHeader
+                  className="form-header rounded "
+                  style={{ backgroundColor: "#bc5090", color: "white" }}
+                >
                   <h3 className="my-3">
                     <MDBIcon icon="lock" /> Login:
                   </h3>
@@ -87,11 +100,18 @@ class Login extends Component {
                     />
                   </div>
 
-                  <input
+                  <button
                     type="submit"
-                    value="Log In"
-                    className="btn btn-primary btn-block"
-                  />
+                    style={{
+                      backgroundColor: "#003f5c",
+                      color: "white",
+                      padding: "10px",
+                      width: "200px",
+                      borderRadius: "10px"
+                    }}
+                  >
+                    Log In{" "}
+                  </button>
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light">

@@ -1,29 +1,73 @@
-/* .App:not(#notInclude) {
-  width: 90%;
-  margin: auto;
+* {
+  box-sizing: border-box;
+}
+/* .navButton {
+  color: "#d6d4e0";
 } */
-img {
+.patImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+#homeimg {
   width: 100%;
   display: block;
   margin-top: -40px;
   height: 910px;
+  margin: auto;
 }
+
 #welcome {
-  text-align: center;
+  text-align: left;
   top: 150px;
+  left: 20px;
   position: relative;
-  color: aliceblue;
 }
+.home {
+  display: inline-block;
+  margin-top: 15px;
+}
+#logo {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
 .formm {
   width: 70%;
   margin: auto;
 }
-.navButton {
-  margin: 10px;
-  color: white;
+
+.heightnav {
+  margin-top: 20px;
 }
+
+.navButton {
+  padding: 10px;
+  font-weight: 400;
+  color: black;
+}
+
+.hoverLink:hover {
+  background-color: rgb(245, 111, 88);
+}
+
+.txt:hover {
+  color: rgb(245, 111, 88);
+}
+.navButton:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .containerSign {
   margin-top: 50px;
+}
+
+h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .signn2 {

@@ -8,11 +8,13 @@ const patientSchema = new Schema({
   address: String,
   image: {
     type: String,
-    validate: value => {
-      if (!validator.isURL(value)) {
-        throw new Error({ error: "Invalid URL address" });
-      }
-    }
+    required: false
+
+    // validate: value => {
+    //   if (!validator.isURL(value)) {
+    //     throw new Error({ error: "Invalid URL address" });
+    //   }
+    // }
   },
   phoneNumber: { type: Number, required: true },
   birthDate: Date,
