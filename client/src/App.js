@@ -93,7 +93,7 @@ class App extends React.Component {
             </MDBNavbarBrand>
             <MDBCollapse id="navbarCollapse3" navbar>
               {!localStorage.token ? (
-                <MDBNavbarNav left>
+                <MDBNavbarNav left style={{ marginBottom: "20px" }}>
                   <MDBNavItem className=" navButton heightnav">
                     <Link to="/signup" className=" navButton hoverLink">
                       Signup
@@ -138,7 +138,7 @@ class App extends React.Component {
                             href=""
                             onClick={this.logOut.bind(this)}
                           >
-                            <Link to="/" className="navButton hoverLink">
+                            <Link to="/" className="navButton ">
                               Logout
                             </Link>
                           </MDBDropdownItem>

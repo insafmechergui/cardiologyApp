@@ -119,7 +119,11 @@ class ShowPatient extends React.Component {
               return (
                 <tr>
                   <td>
-                    <img className="patImage" src={pat.image} />
+                    <img
+                      className="patImage2"
+                      src={pat.image}
+                      alt="patientImage"
+                    />
                   </td>
                   <td>{pat.name}</td>
                   <td>{pat.nationalNumber}</td>
@@ -141,10 +145,12 @@ class ShowPatient extends React.Component {
                     </Link>
                   </td>
                   <td>
-                    <MdDelete
-                      onClick={() => this.delete(pat.nationalNumber)}
-                      style={{ color: "#ff6361" }}
-                    />
+                    <Link>
+                      <MdDelete
+                        onClick={() => this.delete(pat.nationalNumber)}
+                        style={{ color: "#ff6361" }}
+                      />
+                    </Link>
                   </td>
                 </tr>
               );

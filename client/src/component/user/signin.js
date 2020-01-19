@@ -19,7 +19,15 @@ import {
   MDBBtn,
   MDBInput
 } from "mdbreact";
-import { Button, Card, Form, Row, FormGroup, Col } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Form,
+  Row,
+  FormGroup,
+  Col,
+  Alert
+} from "react-bootstrap";
 import {
   Input,
   InputGroupAddon,
@@ -33,12 +41,16 @@ class Login extends Component {
     super(props);
     this.state = {
       matricule: "",
-      password: ""
+      password: "",
+      alert: { state: false, text: "", variant: "" }
     };
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value,
+      alert: { ...this.state.alert, state: false }
+    });
   }
 
   handleSubmit(event) {
@@ -47,6 +59,9 @@ class Login extends Component {
     userService.signin(this.state).then(res => {
       if (res) {
         localStorage.setItem("token", res.token);
+        this.setState({
+          alert: { state: true, text: res.data, variant: "danger" }
+        });
       }
       this.props.history.push("/allPatient");
       window.location.reload();
@@ -62,19 +77,20 @@ class Login extends Component {
               <MDBCardBody>
                 <MDBCardHeader
                   className="form-header rounded "
-                  style={{ backgroundColor: "#ffb6b9", color: "white" }}
+                  style={{ backgroundColor: "#fa163f", color: "white" }}
                 >
                   <h3 className="my-3">
-                    <MDBIcon icon="lock" /> Login:
+                    <MDBIcon icon="lock" /> Sign In:
                   </h3>
                 </MDBCardHeader>
+
                 <form
                   onSubmit={e => {
                     this.handleSubmit(e);
                   }}
                 >
                   <div className="form-group">
-                    <label>Matricule</label>
+                    <label>Registration Number</label>
                     <input
                       type="text"
                       className="form-control"
@@ -103,7 +119,7 @@ class Login extends Component {
                   <button
                     type="submit"
                     style={{
-                      backgroundColor: "#ffde7d",
+                      backgroundColor: "#35477d",
                       color: "white",
                       padding: "10px",
                       width: "200px",
@@ -115,7 +131,9 @@ class Login extends Component {
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light">
-                    <Link to="/signup">New doctor ? Sign Up</Link>
+                    <Link to="/signup">
+                      <strong>New doctor ? Sign Up</strong>
+                    </Link>
                   </div>
                 </MDBModalFooter>
               </MDBCardBody>

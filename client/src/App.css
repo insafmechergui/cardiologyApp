@@ -3,11 +3,18 @@
 }
 .App {
   background-color: #e3fdfd;
+  min-height: 800px;
 }
 /* .navButton {
   color: "#d6d4e0";
 } */
 .patImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+}
+.patImage2 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -46,7 +53,10 @@
   width: 70%;
   margin: auto;
 }
-
+table {
+  background-color: white;
+  border-radius: 50px;
+}
 .heightnav {
   margin-top: 20px;
 }
@@ -59,6 +69,7 @@
 
 .hoverLink:hover {
   background-color: #cbf1f5;
+  border-radius: 50px;
 }
 
 .txt:hover {

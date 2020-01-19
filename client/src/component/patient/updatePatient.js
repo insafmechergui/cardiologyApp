@@ -55,7 +55,7 @@ class UpdatePatient extends React.Component {
           <img
             src={this.state.patient.image}
             className="img-fluid patImage"
-            style={{ float: "right", clear: "both" }}
+            style={{ float: "right", marginRight: "30px" }}
           />
         </Form.Group>
         <div className="formm">
@@ -173,18 +173,17 @@ class UpdatePatient extends React.Component {
                 }}
               />
             </Form.Group>
-
-            <button
-              type="submit"
-              style={{
-                backgroundColor: "#71c9ce",
-                padding: "10px",
-                borderRadius: "10px"
-              }}
-            >
-              Update Patient
-            </button>
           </Form>
+          <button
+            type="submit"
+            style={{
+              backgroundColor: "#71c9ce",
+              padding: "10px",
+              borderRadius: "10px"
+            }}
+          >
+            Update Patient
+          </button>
         </div>
       </div>
     );

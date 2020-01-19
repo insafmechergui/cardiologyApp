@@ -55,7 +55,7 @@ class SignUp extends Component {
                 <form onSubmit={e => this.handleSubmit(e)}>
                   <MDBCardHeader
                     className="form-header rounded "
-                    style={{ backgroundColor: "#bc4873", color: "white" }}
+                    style={{ backgroundColor: "#fa163f", color: "white" }}
                   >
                     <h3 className="my-3">Sign Up:</h3>
                   </MDBCardHeader>
@@ -74,7 +74,7 @@ class SignUp extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Matricule</label>
+                    <label>Registration Number</label>
                     <input
                       type="text"
                       className="form-control"
@@ -103,7 +103,7 @@ class SignUp extends Component {
                   <button
                     type="submit"
                     style={{
-                      backgroundColor: "#472b62",
+                      backgroundColor: "#35477d",
                       color: "white",
                       padding: "10px",
                       width: "200px",
@@ -114,7 +114,9 @@ class SignUp extends Component {
                   </button>
                   <MDBModalFooter>
                     <div className="font-weight-light">
-                      <Link to="/signin">Have account ? Sign In</Link>
+                      <Link to="/signin">
+                        <strong>Have account ? Sign In</strong>
+                      </Link>
                     </div>
                   </MDBModalFooter>
                 </form>
