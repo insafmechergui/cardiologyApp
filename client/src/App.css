@@ -58,7 +58,11 @@ table {
   padding: 20px;
 }
 .heightnav {
-  margin-top: 10px;
+  margin-top: 18px;
+}
+
+.patient-nav {
+  margin-top: 8px;
 }
 
 .navButton {
@@ -87,11 +91,12 @@ table {
 h3 {
   padding-top: 10px;
   padding-bottom: 10px;
+  /* background-color: rgb(174, 255, 194); */
 }
 
-.signn2 {
+/* .signn2 {
   width: 80%;
-}
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

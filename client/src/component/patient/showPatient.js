@@ -106,11 +106,6 @@ class ShowPatient extends React.Component {
           </thead>
           <tbody>
             {filterPatient.map(pat => {
-              {
-                currDate >= pat.surgeryDate
-                  ? console.log("still surgery")
-                  : console.log("passed surgery");
-              }
               return (
                 <tr>
                   <td>
@@ -129,6 +124,20 @@ class ShowPatient extends React.Component {
                   <td>{pat.surgeriesHistory}</td>
                   <td>{pat.futureSurgeries}</td>
                   <td>{pat.surgeryDate}</td>
+                  {/* {currDate}
+                  {currDate < pat.surgeryDate ? (
+                    <td>
+                      <strong style={{ color: "red" }}>
+                        Still time for Surgery
+                      </strong>
+                    </td>
+                  ) : (
+                    <td>
+                      <strong style={{ color: "green" }}>
+                        Surgery is Done
+                      </strong>
+                    </td>
+                  )} */}
                   <td>
                     <Link to={`/updatePatient/?id=${pat.nationalNumber}`}>
                       <MdEdit

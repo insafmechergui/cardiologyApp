@@ -19,6 +19,7 @@ import {
   MDBBtn,
   MDBInput
 } from "mdbreact";
+
 import {
   Button,
   Card,
@@ -121,12 +122,11 @@ class Login extends Component {
                       type="submit"
                       className="my-3"
                       style={{
-                        backgroundColor: "#35477d",
-                        color: "white",
+                        backgroundColor: "#71c9ce",
                         padding: "6px",
                         width: "200px",
                         marginLeft: "50px",
-                        borderRadius: "10px",
+                        borderRadius: "1rem",
                         borderColor: "transparent"
                       }}
                     >

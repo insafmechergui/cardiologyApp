@@ -11,6 +11,7 @@ import {
   MDBModalFooter,
   MDBCardHeader
 } from "mdbreact";
+import { FiUserPlus } from "react-icons/fi";
 import {
   BrowserRouter as Router,
   Switch,
@@ -49,17 +50,19 @@ class SignUp extends Component {
     return (
       <MDBContainer className="containerSign">
         <MDBRow className="signn2">
-          <MDBCol md="6">
-            <MDBCard>
+          <MDBCol md="5" className="m-auto">
+            <MDBCard className="p-2">
               <MDBCardBody>
                 <form onSubmit={e => this.handleSubmit(e)}>
                   <MDBCardHeader
                     className="form-header rounded "
-                    style={{ backgroundColor: "#fa163f", color: "white" }}
+                    style={{ backgroundColor: "white", color: "black" }}
                   >
-                    <h3 className="my-3">Sign Up:</h3>
+                    <h3 className="my-3 text-center">
+                      <FiUserPlus /> Sign up
+                    </h3>
                   </MDBCardHeader>
-                  <div className="grey-text"></div>
+                  <div className="grey-text my-3"></div>
                   <div className="form-group">
                     <label>Name</label>
                     <input
@@ -103,14 +106,15 @@ class SignUp extends Component {
                   <button
                     type="submit"
                     style={{
-                      backgroundColor: "#35477d",
-                      color: "white",
-                      padding: "10px",
+                      backgroundColor: "#71c9ce",
+                      padding: "6px",
                       width: "200px",
-                      borderRadius: "10px"
+                      margin: "20px 100px",
+                      borderRadius: "1rem",
+                      borderColor: "transparent"
                     }}
                   >
-                    Sign Up
+                    Sign up{" "}
                   </button>
                   <MDBModalFooter>
                     <div className="font-weight-light">

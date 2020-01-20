@@ -108,12 +108,12 @@ class App extends React.Component {
               ) : (
                 <MDBNavbarNav>
                   <MDBNavbarNav left>
-                    <MDBNavItem className="navButton heightnav">
+                    <MDBNavItem className="navButton patient-nav">
                       <Link to="/addPatient" className=" navButton hoverLink">
                         Add Patient
                       </Link>
                     </MDBNavItem>
-                    <MDBNavItem className="navButton heightnav">
+                    <MDBNavItem className="navButton patient-nav">
                       <Link to="/allPatient" className=" navButton hoverLink">
                         Show Patient
                       </Link>
