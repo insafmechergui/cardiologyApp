@@ -173,17 +173,17 @@ class UpdatePatient extends React.Component {
                 }}
               />
             </Form.Group>
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "#71c9ce",
+                padding: "10px",
+                borderRadius: "10px"
+              }}
+            >
+              Update Patient
+            </button>
           </Form>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: "#71c9ce",
-              padding: "10px",
-              borderRadius: "10px"
-            }}
-          >
-            Update Patient
-          </button>
         </div>
       </div>
     );

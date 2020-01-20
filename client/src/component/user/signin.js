@@ -70,77 +70,82 @@ class Login extends Component {
 
   render() {
     return (
-      <MDBContainer className="containerSign">
-        <MDBRow className="signn">
-          <MDBCol md="4">
-            <MDBCard>
-              <MDBCardBody>
-                <MDBCardHeader
-                  className="form-header rounded "
-                  style={{ backgroundColor: "#fa163f", color: "white" }}
-                >
-                  <h3 className="my-3">
-                    <MDBIcon icon="lock" /> Sign In:
-                  </h3>
-                </MDBCardHeader>
+      <div>
+        <MDBContainer className="containerSign">
+          <MDBRow className="signn ">
+            <MDBCol md="4" className="m-auto">
+              <MDBCard className="p-2">
+                <MDBCardBody>
+                  <MDBCardHeader
+                    className="form-header rounded "
+                    style={{ backgroundColor: "white", color: "black" }}
+                  >
+                    <h3 className="my-3 text-center">
+                      <MDBIcon icon="lock" /> Sign in
+                    </h3>
+                  </MDBCardHeader>
 
-                <form
-                  onSubmit={e => {
-                    this.handleSubmit(e);
-                  }}
-                >
-                  <div className="form-group">
-                    <label>Registration Number</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Matricule"
-                      name="matricule"
-                      value={this.state.matricule}
-                      onChange={e => {
-                        this.onChange(e);
-                      }}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Enter password"
-                      name="password"
-                      value={this.state.password}
-                      onChange={e => {
-                        this.onChange(e);
-                      }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    style={{
-                      backgroundColor: "#35477d",
-                      color: "white",
-                      padding: "10px",
-                      width: "200px",
-                      borderRadius: "10px"
+                  <form
+                    onSubmit={e => {
+                      this.handleSubmit(e);
                     }}
                   >
-                    Log In{" "}
-                  </button>
-                </form>
-                <MDBModalFooter>
-                  <div className="font-weight-light">
-                    <Link to="/signup">
-                      <strong>New doctor ? Sign Up</strong>
-                    </Link>
-                  </div>
-                </MDBModalFooter>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+                    <div className="form-group my-3">
+                      <label>Registration Number</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Matricule"
+                        name="matricule"
+                        value={this.state.matricule}
+                        onChange={e => {
+                          this.onChange(e);
+                        }}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Password</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={e => {
+                          this.onChange(e);
+                        }}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="my-3"
+                      style={{
+                        backgroundColor: "#35477d",
+                        color: "white",
+                        padding: "6px",
+                        width: "200px",
+                        marginLeft: "50px",
+                        borderRadius: "10px",
+                        borderColor: "transparent"
+                      }}
+                    >
+                      Log In{" "}
+                    </button>
+                  </form>
+                  <MDBModalFooter>
+                    <div className="font-weight-light">
+                      <Link to="/signup">
+                        <strong>New doctor ? Sign Up</strong>
+                      </Link>
+                    </div>
+                  </MDBModalFooter>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </div>
     );
   }
 }

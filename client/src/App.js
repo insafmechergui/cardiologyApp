@@ -88,7 +88,7 @@ class App extends React.Component {
                   src="http://icons.iconarchive.com/icons/graphicloads/medical-health/256/heart-beat-icon.png"
                   id="logo"
                 />
-                <strong className="txt">Cardiology RBK App</strong>
+                <strong className="txt">Cardiology/ Heart Disease App</strong>
               </Link>
             </MDBNavbarBrand>
             <MDBCollapse id="navbarCollapse3" navbar>
@@ -100,7 +100,7 @@ class App extends React.Component {
                     </Link>
                   </MDBNavItem>
                   <MDBNavItem className="navButton heightnav">
-                    <Link to="/signin" className=" navButton hoverLink">
+                    <Link to="/signin" className="navButton hoverLink">
                       Signin
                     </Link>
                   </MDBNavItem>
@@ -123,10 +123,10 @@ class App extends React.Component {
                     <MDBNavItem>
                       <MDBDropdown>
                         <MDBDropdownToggle nav caret style={{ margin: "10px" }}>
-                          <div className="white-text ">
+                          <span className="white-text ">
                             <MDBIcon icon="user" />
-                            {this.state.name}
-                          </div>
+                            {"  " + this.state.name}
+                          </span>
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default">
                           <MDBDropdownItem style={{ padding: "10px" }}>

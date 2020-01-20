@@ -1,7 +1,8 @@
 import React from "react";
 import { Table, Form, FormControl } from "react-bootstrap";
 import patientService from "../../services/patientService";
-import { MdDelete, MdEdit } from "react-icons/md";
+import { MdDelete, MdEdit, MDSearch } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
 import {
   Route,
   Link,
@@ -69,31 +70,25 @@ class ShowPatient extends React.Component {
       tempDate.getMinutes();
     const currDate = "Current Date= " + date;
     return (
-      <div>
-        {/* {this.newDate + "/" + this.date} */}
-        {/* {date +
-          "/" +
-          month +
-          "/" +
-          year +
-          "/" +
-          hours +
-          "/" +
-          "/" +
-          min +
-          "/" +
-          sec} */}
+      <div className="p-3">
         <Form
           inline
-          style={{ display: "block", float: "right", margin: "20px" }}
+          style={{
+            float: "right",
+            margin: "8px 0px"
+          }}
         >
+          {/* <FaSearch /> */}
           <FormControl
             placeholder="Search for..."
             value={this.state.search}
             onChange={this.onchange.bind(this)}
+            style={{
+              width: "300px"
+            }}
           />
         </Form>
-        <Table responsive>
+        <Table responsive className="text-center">
           <thead>
             <tr>
               <th>Patient Image</th>
@@ -140,15 +135,17 @@ class ShowPatient extends React.Component {
                         onClick={() => {
                           localStorage.setItem("id", pat.nationalNumber);
                         }}
-                        style={{ color: "#21bf73" }}
+                        style={{
+                          color: "#21bf73",
+                          fontSize: "16pt"
+                        }}
                       />
                     </Link>
-                  </td>
-                  <td>
-                    <Link>
+
+                    <Link className="pl-4">
                       <MdDelete
                         onClick={() => this.delete(pat.nationalNumber)}
-                        style={{ color: "#ff6361" }}
+                        style={{ color: "#ff6361", fontSize: "16pt" }}
                       />
                     </Link>
                   </td>
