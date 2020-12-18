@@ -7,16 +7,17 @@ import {
   Route,
   Link,
   BrowserRouter as Router,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import Update from "./updatePatient";
+import patient from "../../images/person.png";
 
 class ShowPatient extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       patient: [],
-      search: ""
+      search: "",
     };
     this.delete = this.delete.bind(this);
   }
@@ -26,56 +27,39 @@ class ShowPatient extends React.Component {
   }
 
   displayPatients() {
-    patientService.showPatient().then(res => {
+    patientService.showPatient().then((res) => {
       this.setState({
-        patient: res.data
+        patient: res.data,
       });
     });
   }
   delete(id) {
     console.log(id);
-    patientService.deletePatient(id).then(res => {
+    patientService.deletePatient(id).then((res) => {
       this.displayPatients();
       // document.getElementById("dddd").textContent = "Patient deleted";
     });
   }
   onchange(e) {
     this.setState({
-      search: e.target.value
+      search: e.target.value,
     });
   }
   todayDate() {}
   render() {
-    let filterPatient = this.state.patient.filter(pat => {
+    let filterPatient = this.state.patient.filter((pat) => {
       return (
         pat.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
     });
-    // var date = new Date().getDate(); //Current Date
-    // var month = new Date().getMonth() + 1; //Current Month
-    // var year = new Date().getFullYear(); //Current Year
-    // var hours = new Date().getHours(); //Current Hours
-    // var min = new Date().getMinutes(); //Current Minutes
-    // var sec = new Date().getSeconds(); //Current Seconds
-    var tempDate = new Date();
-    var date =
-      tempDate.getFullYear() +
-      "-" +
-      (tempDate.getMonth() + 1) +
-      "-" +
-      tempDate.getDate() +
-      " " +
-      (tempDate.getHours() - 1) +
-      ":" +
-      tempDate.getMinutes();
-    const currDate = "Current Date= " + date;
+
     return (
       <div className="p-3">
         <Form
           inline
           style={{
             float: "right",
-            margin: "8px 0px"
+            margin: "8px 0px",
           }}
         >
           {/* <FaSearch /> */}
@@ -84,7 +68,7 @@ class ShowPatient extends React.Component {
             value={this.state.search}
             onChange={this.onchange.bind(this)}
             style={{
-              width: "300px"
+              width: "300px",
             }}
           />
         </Form>
@@ -105,15 +89,23 @@ class ShowPatient extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {filterPatient.map(pat => {
+            {filterPatient.map((pat) => {
               return (
                 <tr>
                   <td>
-                    <img
-                      className="patImage2"
-                      src={pat.image}
-                      alt="patientImage"
-                    />
+                    {pat.image ? (
+                      <img
+                        className="patImage2"
+                        src={pat.image}
+                        alt="patientImage"
+                      />
+                    ) : (
+                      <img
+                        className="patImage2"
+                        src={patient}
+                        alt="patientImage"
+                      />
+                    )}
                   </td>
                   <td>{pat.name}</td>
                   <td>{pat.nationalNumber}</td>
@@ -146,7 +138,7 @@ class ShowPatient extends React.Component {
                         }}
                         style={{
                           color: "#21bf73",
-                          fontSize: "16pt"
+                          fontSize: "16pt",
                         }}
                       />
                     </Link>
