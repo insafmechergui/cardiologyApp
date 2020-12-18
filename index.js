@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 var cors = require("cors");
 
 const app = express();
-
+var mongodb = require("dotenv");
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -13,11 +13,11 @@ require("./routes/userRoutes")(app);
 require("./routes/patientRoutes")(app);
 
 mongoose.Promise = global.Promise;
-
+var uri = process.env.mongodb;
 mongoose.connect(
-  process.env.MONGODB_URI || `mongodb://localhost:27017/cardioPatient`,
+  // process.env.MONGODB_URI || `mongodb://localhost:27017/cardioPatient`,
   //   process.env.MONGODB_URI || `mongodb://localhost:27017/cardioPatient`,
-
+  uri,
   { useUnifiedTopology: true, useNewUrlParser: true }
 );
 
